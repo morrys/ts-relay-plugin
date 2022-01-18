@@ -1,0 +1,54 @@
+{
+  "name": "ts-relay-plugin",
+  "version": "1.0.0",
+  "keywords": [
+    "graphql",
+    "relay",
+    "typescript",
+    "transformer"
+  ],
+  "main": "lib/index.js",
+  "license": "MIT",
+  "description": "TS Relay Plugin",
+  "author": {
+    "name": "morrys"
+  },
+  "homepage": "https://relay-tools.github.io/relay-hooks/docs/relay-hooks.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/morrys/ts-relay-plugin"
+  },
+  "scripts": {
+    "clean": "rimraf lib",
+    "compile": "npm run clean && tsc",
+    "build": "npm run compile",
+    "format": "prettier --write \"src/**/*.{j,t}s*\"",
+    "format:ci": "prettier --list-different \"src/**/*.{j,t}s*\"",
+    "eslint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "cosmiconfig": "^5.0.5"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.9",
+    "@typescript-eslint/eslint-plugin": "2.25.0",
+    "@typescript-eslint/parser": "2.25.0",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.10.1",
+    "eslint-import-resolver-typescript": "2.0.0",
+    "eslint-plugin-import": "2.20.1",
+    "eslint-plugin-json": "2.1.1",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-react": "7.19.0",
+    "eslint-plugin-react-hooks": "3.0.0",
+    "cosmiconfig": "^5.0.5",
+    "graphql": "15.3.0",
+    "rimraf": "3.0.2",
+    "typescript": "4.5.4"
+  },
+  "funding": {
+    "url": "https://github.com/sponsors/morrys"
+  }
+}
