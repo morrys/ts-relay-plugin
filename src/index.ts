@@ -1,3 +1,4 @@
+/* eslint-disable import/no-default-export */
 import { dirname, join as joinPath, relative as relativePath, resolve as resolvePath } from 'path';
 import cosmiconfig from 'cosmiconfig';
 import * as GraphQL from 'graphql';
@@ -27,7 +28,7 @@ const relayTransform = <T extends ts.Node>(
     return (rootNode: ts.SourceFile): ts.SourceFile => {
         const newStatements = [];
         const fileName = rootNode.fileName;
-        function visit(node) {
+        function visit(node: ts.Node): ts.Node {
             if (ts.isTaggedTemplateExpression(node)) {
                 if (node.tag.getText() === 'graphql') {
                     const template = node.template.getFullText();
@@ -106,6 +107,8 @@ function getRelativeImportPath(
     return relativeReference + joinPath(relative, fileToRequire);
 }
 
-export const factory = () => relayTransform;
+export const factory = (): ((
+    context: ts.TransformationContext,
+) => (rootNode: ts.SourceFile) => ts.SourceFile) => relayTransform;
 
 export default relayTransform;

@@ -10,10 +10,10 @@ function update(
     context: ts.TransformationContext,
     node: ts.SourceFile,
     statements: ts.Statement[],
-) {
+): ts.SourceFile {
     const { factory } = context;
     if (!factory) {
-        return updateWithoutContext(context, node, statements);
+        return ts.updateSourceFileNode(node, statements);
     }
     return context.factory.updateSourceFile(node, statements);
 }
@@ -98,14 +98,6 @@ function createImportWithoutContext(
         ts.createImportClause(identifier, undefined),
         ts.createStringLiteral(imp.path),
     );
-}
-
-function updateWithoutContext(
-    context: ts.TransformationContext,
-    node: ts.SourceFile,
-    statements: ts.Statement[],
-) {
-    return ts.updateSourceFileNode(node, statements);
 }
 
 export const resolve = {
