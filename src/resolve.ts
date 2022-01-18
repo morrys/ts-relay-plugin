@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import ts from 'typescript';
 export type ImportNode = {
     path: string;

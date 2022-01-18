@@ -1,4 +1,5 @@
 /* eslint-disable import/no-default-export */
+/* eslint-disable import/no-extraneous-dependencies */
 import { dirname, join as joinPath, relative as relativePath, resolve as resolvePath } from 'path';
 import cosmiconfig from 'cosmiconfig';
 import * as GraphQL from 'graphql';
