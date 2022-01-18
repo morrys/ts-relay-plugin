@@ -1,5 +1,10 @@
 import ts from 'typescript';
-import { ImportNode, ImportReturn } from '.';
+export type ImportNode = {
+    path: string;
+    definitionName: string;
+};
+
+export type ImportReturn = ts.VariableStatement | ts.ImportDeclaration;
 
 function update(
     context: ts.TransformationContext,
