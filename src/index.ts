@@ -103,7 +103,7 @@ function getRelativeImportPath(
 ): string {
     const relative = relativePath(dirname(filename), resolvePath(artifactDirectory));
 
-    const relativeReference = relative.length === 0 || !relative.startsWith('.') ? './' : '';
+    const relativeReference = relative.length === 0 || !relative.startsWith('./') ? './' : '';
 
     return relativeReference + joinPath(relative, fileToRequire);
 }
